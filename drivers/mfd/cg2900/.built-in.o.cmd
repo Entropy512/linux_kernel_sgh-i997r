@@ -1,1 +1,0 @@
-cmd_drivers/mfd/cg2900/built-in.o :=  /home/jaeho486.seo/Hawk_GB/S1_IMPORT/SECSYS/Android/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-ld -EL    -r -o drivers/mfd/cg2900/built-in.o drivers/mfd/cg2900/cg2900.o 
