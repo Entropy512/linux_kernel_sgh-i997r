@@ -30,6 +30,7 @@
 *.lst
 *.symtypes
 *.order
+*.built-in
 !drivers/mfd/cg2900/modules.order
 *.elf
 *.bin
