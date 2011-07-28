@@ -1,0 +1,8 @@
+#!/bin/sh
+rm $(find ../initramfs_sgh-i997r -name EMPTY_DIRECTORY -print)
+rm -rf $(find ../initramfs_sgh-i997r -name .git -print)
+make dempseyR_rev00_defconfig
+make -j16 && cp -a $(find . -name *.ko -print) ../initramfs_sgh-i997r/lib/modules/ && make -j16
+# adb shell reboot download
+# sleep 5
+# heimdall flash --kernel arch/arm/boot/zImage
