@@ -365,17 +365,10 @@ static void maxim_stepcharging_work(struct work_struct *work)
 			max8998_write_reg(max8998_i2c, MAX8998_REG_CHGR2,stepchargingreg_buff[1]);
 			mod_timer(&chargingstep_timer, jiffies + msecs_to_jiffies(CHARGINGSTEP_INTERVAL));				
 		}
-	     else if(stepchargingCount == 4)
+	    else if(stepchargingCount == 4)
 		{             //600mA
-			stepchargingreg_buff[0] = (stepchargingreg_buff[0] & 0xF8) | 0x05;
-			max8998_write_reg(max8998_i2c, MAX8998_REG_CHGR1,stepchargingreg_buff[0]);
-			max8998_write_reg(max8998_i2c, MAX8998_REG_CHGR2,stepchargingreg_buff[1]);
-			mod_timer(&chargingstep_timer, jiffies + msecs_to_jiffies(CHARGINGSTEP_INTERVAL));				
-		}
-	    else if(stepchargingCount == 5)
-		{             //800mA
 			stepchargingCount = 0;
-			stepchargingreg_buff[0] = (stepchargingreg_buff[0] & 0xF8) | 0x07;
+			stepchargingreg_buff[0] = (stepchargingreg_buff[0] & 0xF8) | 0x05;
 			max8998_write_reg(max8998_i2c, MAX8998_REG_CHGR1,stepchargingreg_buff[0]);
 			max8998_write_reg(max8998_i2c, MAX8998_REG_CHGR2,stepchargingreg_buff[1]);
 		}
@@ -2051,12 +2044,6 @@ static ssize_t s3c_bat_show_attrs(struct device *dev,
 		break;	
 #endif			
 
-#if (defined ATT_TMO_COMMON)
-	case BATT_CHG_CURRENT:
-	  chg->bat_info.batt_current = s3c_bat_get_adc_data(S3C_ADC_CHG_CURRENT);
-	  i += scnprintf(buf + i, PAGE_SIZE - i, "%d\n", chg->bat_info.batt_current);
-	  break;
-#endif
 		
 	case BATT_CHARGING_SOURCE:
 		i += scnprintf(buf + i, PAGE_SIZE - i, "%d\n", chg->cable_status);
