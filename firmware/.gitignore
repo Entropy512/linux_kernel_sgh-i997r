@@ -1,1 +1,6 @@
-samsung_mfc_fw.bin.gen.S
+*.gen.S
+*.fw
+*.bin
+*.csp
+*.dsp
+ihex2fw
