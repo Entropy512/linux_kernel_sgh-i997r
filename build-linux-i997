@@ -1,4 +1,5 @@
 #!/bin/sh
+mkdir -p kernel/usr/initramfs
 rm -rf kernel/usr/initramfs/*
 cp -R ../initramfs_sgh-i997r/* kernel/usr/initramfs
 rm $(find kernel/usr/initramfs -name EMPTY_DIRECTORY -print)
