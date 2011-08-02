@@ -1857,24 +1857,39 @@ static void stepcharger_statemachine(struct chg_data *chg)
   bat_dbg(" [BAT] ICHG was 0x%02x \n",ichg);
   bat_dbg(" [BAT] Voltage was %d\n",batt_voltage);
 
+  if((ichg == 0x4) || (ichg == 0x3))
+    {
+       if(batt_voltage < 4100)
+	{
+	  bat_dbg(" [BAT] increase current to 600 mA\n ");
+	  data = (data & 0xF8) | 0x06;
+	  max8998_write_reg(i2c,MAX8998_REG_CHGR1,data);
+	}     
+    }
   if(ichg == 0x5)
     {
-      if(batt_voltage < 4100)
+      if(batt_voltage < 4050)
 	{
 	  bat_dbg(" [BAT] increase current to 700 mA\n ");
 	  data = (data & 0xF8) | 0x06;
 	  max8998_write_reg(i2c,MAX8998_REG_CHGR1,data);
 	}
+      if(batt_voltage > 4150)
+	{
+	  bat_dbg(" [BAT] decrease current to 550 mA\n ");
+	  data = (data & 0xF8) | 0x03;
+	  max8998_write_reg(i2c,MAX8998_REG_CHGR1,data);
+	}
     }
   if(ichg == 0x6)
     {
-      if(batt_voltage < 4050)
+      if(batt_voltage < 4000)
 	{
 	  bat_dbg(" [BAT] increase current to 800 mA\n ");
 	  data = (data & 0xF8) | 0x07;
 	  max8998_write_reg(i2c,MAX8998_REG_CHGR1,data);
 	}
-      if(batt_voltage > 4150)
+      if(batt_voltage > 4100)
 	{
 	  bat_dbg(" [BAT] decrease current to 600 mA\n ");
 	  data = (data & 0xF8) | 0x05;
@@ -1883,7 +1898,7 @@ static void stepcharger_statemachine(struct chg_data *chg)
     }
   if(ichg == 0x7)
     {
-      if(batt_voltage > 4100)
+      if(batt_voltage > 4050)
 	{
 	  bat_dbg(" [BAT] decrease current to 700 mA\n ");
 	  data = (data & 0xF8) | 0x06;
