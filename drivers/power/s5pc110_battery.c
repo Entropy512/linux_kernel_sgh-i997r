@@ -1862,7 +1862,7 @@ static void stepcharger_statemachine(struct chg_data *chg)
        if(batt_voltage < 4100)
 	{
 	  bat_dbg(" [BAT] increase current to 600 mA\n ");
-	  data = (data & 0xF8) | 0x06;
+	  data = (data & 0xF8) | 0x05;
 	  max8998_write_reg(i2c,MAX8998_REG_CHGR1,data);
 	}     
     }
