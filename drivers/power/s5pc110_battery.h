@@ -50,7 +50,7 @@
 
 #define BAT_POLLING_INTERVAL	10000
 #define ADC_TOTAL_COUNT		10
-#define ADC_DATA_ARR_SIZE	6
+#define ADC_DATA_ARR_SIZE	10
 
 #define OFFSET_VIBRATOR_ON		(0x1 << 0)
 #define OFFSET_CAMERA_ON		(0x1 << 1)
@@ -234,8 +234,8 @@ enum {
 #define RECHARGE_COND_TIME		      (30*1000)	/* 30 seconds */
 
 
-#define CURRENT_OF_FULL_CHG		325		//??mA
-#define CURRENT_OF_TOPOFF_CHG		186
+#define CURRENT_OF_FULL_CHG		375		//205mA
+#define CURRENT_OF_TOPOFF_CHG		215		//117mA
 
 
 #define BATT_VF_MAX				800 // 0.55
