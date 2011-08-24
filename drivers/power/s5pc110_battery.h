@@ -38,7 +38,7 @@
 
 #if defined (ATT_TMO_COMMON) 
 
-#define BATTERY_DEBUG
+// #define BATTERY_DEBUG
 
 #ifdef BATTERY_DEBUG
 #define bat_dbg(fmt, ...) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
