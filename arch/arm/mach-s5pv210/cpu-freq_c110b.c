@@ -51,7 +51,7 @@ static unsigned int apll_freq_max; /* in MHz */
 static DEFINE_MUTEX(set_freq_lock);
 
 /* UV */
-extern int exp_UV_mV[7]; 
+extern int exp_UV_mV[5]; 
 
 /* frequency */
 static struct cpufreq_frequency_table freq_table[] = {
