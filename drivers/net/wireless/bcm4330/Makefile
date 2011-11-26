@@ -46,7 +46,7 @@ EXTRA_CFLAGS += -DDHD_USE_STATIC_BUF
 #EXTRA_CFLAGS += -DWLP2P
 
 # BTAMP
-EXTRA_CFLAGS += -DWLBTAMP
+#EXTRA_CFLAGS += -DWLBTAMP
 
 # COMBO SCAN
 EXTRA_CFLAGS += -DCSCAN
@@ -99,7 +99,6 @@ dhd-y := src/dhd/sys/dhd_linux.o \
          src/dhd/sys/dhd_sdio.o \
          src/dhd/sys/dhd_custom_gpio.o \
          src/dhd/sys/dhd_custom_sec.o \
-         src/dhd/sys/dhd_bta.o \
          src/shared/aiutils.o \
          src/shared/bcmutils.o \
          src/shared/bcmwifi.o \
@@ -128,7 +127,6 @@ clean:
          src/dhd/sys/dhd_sdio.o \
          src/dhd/sys/dhd_custom_gpio.o \
          src/dhd/sys/dhd_custom_sec.o \
-         src/dhd/sys/dhd_bta.o \
          src/shared/aiutils.o \
          src/shared/bcmutils.o \
          src/shared/bcmwifi.o \
@@ -149,7 +147,6 @@ clean:
          src/dhd/sys/.dhd_sdio.o.cmd \
          src/dhd/sys/.dhd_custom_gpio.o.cmd \
          src/dhd/sys/.dhd_custom_sec.o.cmd \
-         src/dhd/sys/.dhd_bta.o.cmd \
          src/shared/.aiutils.o.cmd \
          src/shared/.bcmutils.o.cmd \
          src/shared/.bcmwifi.o.cmd \
